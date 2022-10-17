@@ -3621,6 +3621,7 @@ MonoBehaviour:
   timer: {fileID: 1884929917}
   enemyHP: {fileID: 722178544}
   playerHP: {fileID: 2130287833}
+  shopWindow: {fileID: 1518466279}
   player: {fileID: 2030701450}
   gameTimer: {fileID: 1232201096}
   projectileLayer:
