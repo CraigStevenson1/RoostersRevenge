@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PlayerUtils playerUt = other.GetComponent<PlayerUtils>();
+        Enemy enemy = other.GetComponent<Enemy>();
         //Debug.Log("trigger");
         Debug.Log(other.tag);
         if (playerUt != null)
@@ -29,6 +30,11 @@ public class Projectile : MonoBehaviour
         {
             
             gameObject.SetActive(false);
+        }
+
+        else if(enemy != null)
+        {
+            enemy.reduceHP(projectileDamage / 2);
         }
     }
 

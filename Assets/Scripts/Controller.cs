@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
     [SerializeField] TMP_Text timer;
     [SerializeField] TMP_Text enemyHP;
     [SerializeField] TMP_Text playerHP;
-    [SerializeField] Enemy enemy;
+    [SerializeField] GameObject shopWindow;
     [SerializeField] PlayerUtils player;
     [SerializeField] Timer gameTimer;
     [SerializeField] LayerMask projectileLayer;
@@ -21,6 +21,8 @@ public class Controller : MonoBehaviour
     private int scoreCounter;
     private GameInteractions interactions;
     private bool enabled;
+    private EnemyAttack atk;
+    private Enemy enemy;
     //public InputAction pos;
 
     private void Awake()
@@ -38,6 +40,8 @@ public class Controller : MonoBehaviour
     }
     void Start()
     {
+        enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
+        atk = GameObject.Find("Enemy").GetComponent<EnemyAttack>();
         //enemyScript = enemy.GetComponent<Enemy>();
         interactions.Touch.ScreenTap.started += ctx => updateScore(ctx);
         interactions.Touch.ScreenTap.canceled += ctx => releaseTap(ctx);
@@ -87,12 +91,20 @@ public class Controller : MonoBehaviour
         {
             Debug.Log("is a hit");
             Projectile proj = hit.collider.GetComponent<Projectile>();
+            PlayerUtils shop = hit.collider.GetComponent<PlayerUtils>();
             if (proj != null)
            {
                 proj.reduceClickCount();
 
                 return true;
           }
+
+            else if(shop != null)
+            {
+                shopWindow.SetActive(true);
+                pause();
+                return true;
+            }
         }
        
 
@@ -155,9 +167,9 @@ public class Controller : MonoBehaviour
         player.enableShieldPowerUp();
     }
 
-    public void addTimerPowerUp(float amount)
+    public void unoReverse()
     {
-        gameTimer.addTime(amount);
+        atk.UnoReverseActivate();
     }
 
     public void returnToMainMenu()
@@ -166,6 +178,17 @@ public class Controller : MonoBehaviour
         Debug.Log("Return to main menu called");
     }
 
+    private void pause()
+    {
+        Time.timeScale = 0;
+        enabled = false;
+    }
+
+    public void unpause()
+    {
+        Time.timeScale = 1;
+        enabled = true;
+    }
 
 
 

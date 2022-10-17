@@ -34,7 +34,8 @@ public class TempPowerUpSpawner : MonoBehaviour
         if(roll < 70)
         {
             Instantiate(powerUps[0], worldSpawnLocCords, Quaternion.identity);
-            controller.enableDamagePowerUp();
+            //controller.enableDamagePowerUp();
+            controller.unoReverse();
             //powerUpOne
         }
 
@@ -48,7 +49,7 @@ public class TempPowerUpSpawner : MonoBehaviour
         else
         {
             Instantiate(powerUps[2], worldSpawnLocCords, Quaternion.identity);
-            controller.addTimerPowerUp(10f);
+            controller.unoReverse();
             //powerup3
         }
     }
