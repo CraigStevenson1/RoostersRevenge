@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
-
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Controller : MonoBehaviour
@@ -18,11 +18,15 @@ public class Controller : MonoBehaviour
     [SerializeField] Timer gameTimer;
     [SerializeField] LayerMask projectileLayer;
     [SerializeField] GameObject endWindow;
-    private int scoreCounter;
+    [SerializeField] GameObject lackeyPrefab;
+   // private int scoreCounter;
     private GameInteractions interactions;
     private bool enabled;
     private EnemyAttack atk;
     private Enemy enemy;
+    string scoreKey;
+    private string levelScoreKey;
+
     //public InputAction pos;
 
     private void Awake()
@@ -45,8 +49,12 @@ public class Controller : MonoBehaviour
         //enemyScript = enemy.GetComponent<Enemy>();
         interactions.Touch.ScreenTap.started += ctx => updateScore(ctx);
         interactions.Touch.ScreenTap.canceled += ctx => releaseTap(ctx);
-        scoreCounter = 0;
+        //scoreCounter = 0;
+        scoreKey = "score";
+        levelScoreKey = "lscore";
         enabled = true;
+        PlayerPrefs.SetInt(levelScoreKey, 0);
+
 
     }
 
@@ -54,9 +62,10 @@ public class Controller : MonoBehaviour
     {
         if (enabled)
         {
-            scoreCounter += 1;
-            score.text = "Score: " + scoreCounter.ToString();
-
+            //scoreCounter += 1;
+            increaseLevelScore(1);
+            score.text = "Score: " + PlayerPrefs.GetInt(levelScoreKey);
+            
             if (!hitObject(interactions.Touch.TouchPosition.ReadValue<Vector2>()))
             {
                 player.damageEnemy();
@@ -126,7 +135,8 @@ public class Controller : MonoBehaviour
         {
             
             enemyHP.text = hp;
-            increaseScoreValue(scoreCounter);
+            increaseScoreValue(PlayerPrefs.GetInt(levelScoreKey));
+            PlayerPrefs.SetInt(levelScoreKey, 0);
             endWindow.SetActive(true);
             enabled = false;
         }
@@ -136,9 +146,13 @@ public class Controller : MonoBehaviour
         }
     }
 
+    public void updateScoreAfterPurchase()
+    {
+        score.text = "Score: " + PlayerPrefs.GetInt(levelScoreKey);
+    }
     private void increaseScoreValue(int amount)
     {
-        string scoreKey = "score";
+        
         if (PlayerPrefs.HasKey(scoreKey))
         {
             int prevVal = PlayerPrefs.GetInt(scoreKey);
@@ -152,6 +166,12 @@ public class Controller : MonoBehaviour
         
     }
 
+    private void increaseLevelScore(int amount)
+    {
+        int currentValue = PlayerPrefs.GetInt(levelScoreKey);
+        int newVal = currentValue + amount;
+        PlayerPrefs.SetInt(levelScoreKey, newVal);
+    }
     public void updatePlayerHP(string hp)
     {
         playerHP.text = hp;
@@ -174,7 +194,7 @@ public class Controller : MonoBehaviour
 
     public void returnToMainMenu()
     {
-        
+        SceneManager.LoadScene(0);
         Debug.Log("Return to main menu called");
     }
 
@@ -188,6 +208,14 @@ public class Controller : MonoBehaviour
     {
         Time.timeScale = 1;
         enabled = true;
+    }
+
+    public void createLackey()
+    {
+        Vector3 playerPos = player.getPlayerPos();
+        playerPos.x -= 1.5f;
+        playerPos.y -= 1.0f;
+        Instantiate(lackeyPrefab, playerPos, Quaternion.identity);
     }
 
 

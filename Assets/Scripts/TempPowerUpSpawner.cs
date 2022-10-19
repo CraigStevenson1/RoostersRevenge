@@ -34,8 +34,8 @@ public class TempPowerUpSpawner : MonoBehaviour
         if(roll < 70)
         {
             Instantiate(powerUps[0], worldSpawnLocCords, Quaternion.identity);
-            //controller.enableDamagePowerUp();
-            controller.unoReverse();
+            controller.enableDamagePowerUp();
+            //controller.unoReverse();
             //powerUpOne
         }
 

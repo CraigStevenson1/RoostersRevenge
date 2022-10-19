@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using CodeMonkey.HealthSystemCM;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IGetHealthSystem
 {
     [SerializeField] int enemyHP;
     [SerializeField] Controller controller;
+    private HealthSystem hpSys;
     // Start is called before the first frame update
     void Start()
     {
         controller.updateEnemyHP("EnemyHP: " + enemyHP.ToString());
+    }
+
+    public void Awake()
+    {
+        hpSys = new HealthSystem(enemyHP);
     }
 
     // Update is called once per frame
@@ -35,6 +42,7 @@ public class Enemy : MonoBehaviour
 
         else
         {
+            hpSys.Damage(amount);
             controller.updateEnemyHP("EnemyHP: " + enemyHP.ToString());
         }
         
@@ -44,5 +52,10 @@ public class Enemy : MonoBehaviour
     private void death()
     {
         gameObject.SetActive(false);
+    }
+
+    public HealthSystem GetHealthSystem()
+    {
+        return hpSys;
     }
 }

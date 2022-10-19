@@ -13,10 +13,14 @@ public class EndWindow : MonoBehaviour
     {
         scoreKey = "score";
         controller = GameObject.Find("LevelController").GetComponent<Controller>();
-        scoreSection.text = "Score Accumulated: " + PlayerPrefs.GetInt(scoreKey);
-       
-    }   
-    
+        scoreSection.text = "Total Spoils Accumulated: " + PlayerPrefs.GetInt(scoreKey);
+
+    }
+    private void OnEnable()
+    {
+        scoreSection.text = "Total Spoils Accumulated: " + PlayerPrefs.GetInt(scoreKey);
+
+    }
     public void MainMenuButton()
     {
         controller.returnToMainMenu();

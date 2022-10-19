@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void shopButton()
     {
-        Debug.Log("Shop Button Pushed");
+        PlayerPrefs.DeleteAll();
+        spoilsOfWar.text = "Spoils of War: " + 0;
     }
 }

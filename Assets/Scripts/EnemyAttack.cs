@@ -77,7 +77,7 @@ public class EnemyAttack : MonoBehaviour
 
         Rigidbody projRb = proj.GetComponent<Rigidbody>();
 
-        projRb.velocity = direction;
+        projRb.velocity = direction*0.75f;
        // Debug.Log(worldSpawnCords);
 
 

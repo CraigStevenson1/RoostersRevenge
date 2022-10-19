@@ -34,7 +34,8 @@ public class Projectile : MonoBehaviour
 
         else if(enemy != null)
         {
-            enemy.reduceHP(projectileDamage / 2);
+            enemy.reduceHP(projectileDamage);
+            gameObject.SetActive(false);
         }
     }
 

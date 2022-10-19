@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using CodeMonkey.HealthSystemCM;
 
-public class PlayerUtils : MonoBehaviour
+public class PlayerUtils : MonoBehaviour, IGetHealthSystem
 {
     // Start is called before the first frame update
     [SerializeField] int startHP;
@@ -14,6 +15,9 @@ public class PlayerUtils : MonoBehaviour
     private float powerUpTimer;
     private float shieldPowerUpTimer;
     private GameObject currentActiveShieldModel;
+    private int permanentAtkBoost;
+    private string permanentAtkBoostKey;
+    private HealthSystem playerHpSys;
 
     private void Start()
     {
@@ -22,18 +26,35 @@ public class PlayerUtils : MonoBehaviour
         atkPowerIncrease = 0;
         powerUpTimer = 0;
         shieldPowerUpTimer = 0;
+        permanentAtkBoostKey = "dmg";
+
+        if (PlayerPrefs.HasKey(permanentAtkBoostKey))
+        {
+            permanentAtkBoost = PlayerPrefs.GetInt(permanentAtkBoostKey);
+        }
+
+    }
+
+    private void Awake()
+    {
+        playerHpSys = new HealthSystem(startHP);
     }
 
     public void takeProjectileDmg(int damage)
     {
         
         startHP -= damage;
-        controller.updatePlayerHP("PlayerHP: " + startHP.ToString());
+        playerHpSys.Damage(damage);
+        //controller.updatePlayerHP("PlayerHP: " + startHP.ToString());
     }
 
     public void damageEnemy()
     {
-        controller.reduceEnemyHP(1 + atkPowerIncrease);
+        if (PlayerPrefs.HasKey(permanentAtkBoostKey))
+        {
+            permanentAtkBoost = PlayerPrefs.GetInt(permanentAtkBoostKey);
+        }
+        controller.reduceEnemyHP(1 + atkPowerIncrease + permanentAtkBoost);
     }
 
     public void enableDamagePowerUp()
@@ -46,9 +67,17 @@ public class PlayerUtils : MonoBehaviour
     public void enableShieldPowerUp()
     {
         Debug.Log("shield powerup activated");
-        shield = true;
-        currentActiveShieldModel = Instantiate(shieldPrefab, gameObject.transform.position, Quaternion.identity);
-        shieldPowerUpTimer = 5f;
+        if (!shield)
+        {
+            shield = true;
+            currentActiveShieldModel = Instantiate(shieldPrefab, gameObject.transform.position, Quaternion.identity);
+            shieldPowerUpTimer = 5f;
+        }
+
+        else
+        {
+            shieldPowerUpTimer = 5f;
+        }
     }
 
     private void decrementDmgPowerUpTimer()
@@ -92,5 +121,15 @@ public class PlayerUtils : MonoBehaviour
             decrementShieldTimer();
         }
         
+    }
+
+    public Vector3 getPlayerPos()
+    {
+        return gameObject.transform.position; 
+    }
+
+    public HealthSystem GetHealthSystem()
+    {
+        return playerHpSys;
     }
 }
