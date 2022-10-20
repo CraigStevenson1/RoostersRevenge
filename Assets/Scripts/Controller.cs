@@ -21,6 +21,9 @@ public class Controller : MonoBehaviour
     [SerializeField] GameObject lackeyPrefab;
     [SerializeField] string passLevelKey;
     [SerializeField] float levelScoreScaling;
+    [SerializeField] GameObject defeatWindow;
+    [SerializeField] float scoreDecrease;
+    [SerializeField] string levelpassKey;
    // private int scoreCounter;
     private GameInteractions interactions;
     private bool enabled;
@@ -151,7 +154,7 @@ public class Controller : MonoBehaviour
         if (hp == "defeated")
         {
             enemyHP.text = hp;
-            endLevel();
+            endLevel(false);
          
         }
         else
@@ -234,15 +237,28 @@ public class Controller : MonoBehaviour
         Instantiate(lackeyPrefab, playerPos, Quaternion.identity);
     }
 
-    public void endLevel()
+    public void endLevel(bool dead)
     {
-        
-        increaseScoreValue(PlayerPrefs.GetFloat(levelScoreKey));
-        PlayerPrefs.SetFloat(levelScoreKey, 0);
-        //PlayerPrefs.SetInt(passLevelKey, 0);
-        endWindow.SetActive(true);
-        enabled = false;
-        Time.timeScale = 0;
+
+        if (dead)
+        {
+            PlayerPrefs.SetFloat(levelScoreKey, 0);
+            defeatWindow.SetActive(true);
+            enabled = false;
+            Time.timeScale = 0;
+            //punishment();
+        }
+
+        else
+        {
+            PlayerPrefs.SetInt(levelpassKey, 0);
+            increaseScoreValue(PlayerPrefs.GetFloat(levelScoreKey));
+            PlayerPrefs.SetFloat(levelScoreKey, 0);
+            //PlayerPrefs.SetInt(passLevelKey, 0);
+            endWindow.SetActive(true);
+            enabled = false;
+            Time.timeScale = 0;
+        }
     }
 
     public void healPlayer(int amount)
@@ -252,7 +268,14 @@ public class Controller : MonoBehaviour
 
     public void playerDead()
     {
-        endLevel();
+        endLevel(true);
+    }
+
+    private void punishment()
+    {
+        float currentScore = PlayerPrefs.GetFloat(scoreKey);
+        float newScore = currentScore - scoreDecrease;
+        PlayerPrefs.SetFloat(scoreKey, newScore);
     }
 
 }

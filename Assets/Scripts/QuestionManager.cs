@@ -210,9 +210,9 @@ public class QuestionManager : MonoBehaviour
 
     private void updateScorePlayerPrefs()
     {
-        int current = PlayerPrefs.GetInt(scoreKey);
-        int newVal = current + scoreTotal;
-        PlayerPrefs.SetInt(scoreKey, newVal);
+        float current = PlayerPrefs.GetFloat(scoreKey);
+        float newVal = current + scoreTotal;
+        PlayerPrefs.SetFloat(scoreKey, newVal);
     }
 
     private void pause()

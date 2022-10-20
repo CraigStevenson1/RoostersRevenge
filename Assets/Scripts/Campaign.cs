@@ -12,7 +12,7 @@ public class Campaign : MonoBehaviour
 
     public void BonusLevelOne()
     {
-        PlayerPrefs.SetInt("leveltwo", 0);
+        //PlayerPrefs.SetInt("leveltwo", 0);
         if (PlayerPrefs.HasKey("leveltwo"))
         {
             SceneManager.LoadScene(3);
@@ -30,6 +30,8 @@ public class Campaign : MonoBehaviour
 
     public void BonusLevelTwo()
     {
+        //PlayerPrefs.SetInt("levelthree", 0);
+
         if (PlayerPrefs.HasKey("levelthree"))
         {
             SceneManager.LoadScene(5);

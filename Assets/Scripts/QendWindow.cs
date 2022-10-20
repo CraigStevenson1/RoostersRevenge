@@ -18,7 +18,7 @@ public class QendWindow : MonoBehaviour
     private void OnEnable()
     {
         scoreKey = "score";
-        totalScoreAccumulated.text = "Total Spoils Accumulated: " + PlayerPrefs.GetInt(scoreKey);
+        totalScoreAccumulated.text = "Total Spoils Accumulated: " + PlayerPrefs.GetFloat(scoreKey);
     }
     public void returnToMainMenu()
     {

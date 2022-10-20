@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
 
         else
         {
-            controller.endLevel();
+            controller.endLevel(true);
         }
     }
 
