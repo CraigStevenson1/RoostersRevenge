@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         scoreKey = "score";
-        spoilsOfWar.text = "Spoils of War: " + PlayerPrefs.GetInt(scoreKey);
+        spoilsOfWar.text = "Spoils of War: " + PlayerPrefs.GetFloat(scoreKey);
     }
 
     public void campaignButton()

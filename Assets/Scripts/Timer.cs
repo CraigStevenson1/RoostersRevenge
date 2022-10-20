@@ -23,9 +23,17 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalSeconds -= Time.deltaTime;
+        if (totalSeconds > 0)
+        {
+            totalSeconds -= Time.deltaTime;
 
-        controller.updateTime(((int)totalSeconds / 60).ToString() + ":" + (Mathf.Round(totalSeconds % 60)).ToString());
+            controller.updateTime(((int)totalSeconds / 60).ToString() + ":" + (Mathf.Round(totalSeconds % 60)).ToString());
+        }
+
+        else
+        {
+            controller.endLevel();
+        }
     }
 
     public void addTime(float time)

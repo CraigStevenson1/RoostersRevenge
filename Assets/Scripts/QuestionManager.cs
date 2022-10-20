@@ -28,6 +28,7 @@ public class QuestionManager : MonoBehaviour
     private int chosenIndex;
     private string usedQKeyOne;
     private string scoreKey;
+    private bool scoreRecorded;
     //List<Question> q;
 
     // Start is called before the first frame update
@@ -43,27 +44,30 @@ public class QuestionManager : MonoBehaviour
         populateQuestionBox();
         totalSeconds = min * 60 + sec;
         scoreKey = "score";
-
+        unpause();
 
 
     }
-    private void OnEnable()
+   /* private void OnEnable()
     {
         populateUsedQArray();
-    }
+    }*/
     // Update is called once per frame
     void Update()
     {
         if (totalSeconds > 0f && usedIndexs.Count < questionRangeIndexs[1] + 1)
         {
             totalSeconds -= Time.deltaTime;
-
+            Debug.Log(totalSeconds);
             timer.text = (((int)totalSeconds / 60).ToString() + ":" + (Mathf.Round(totalSeconds % 60)).ToString());
         }
 
         else
         {
-            endLevel();
+            if (!scoreRecorded)
+            {
+                endLevel();
+            }
         }
     }
 
@@ -201,6 +205,7 @@ public class QuestionManager : MonoBehaviour
         updateScorePlayerPrefs();
         endWindow.SetActive(true);
         pause();
+        scoreRecorded = true;
     }
 
     private void updateScorePlayerPrefs()
@@ -214,6 +219,13 @@ public class QuestionManager : MonoBehaviour
     {
         Time.timeScale = 0;
         questionWindow.SetActive(false);
+    }
+
+    private void unpause()
+    {
+        Time.timeScale = 1;
+        scoreRecorded = false;
+        //questionWindow.SetActive(false);
     }
 }
 [System.Serializable]

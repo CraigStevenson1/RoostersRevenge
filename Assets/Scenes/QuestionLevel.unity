@@ -3623,7 +3623,7 @@ MonoBehaviour:
   min: 0
   sec: 30
   timer: {fileID: 1700023790}
-  questionRangeIndexs: 0000000018000000
+  questionRangeIndexs: 0000000005000000
   endWindow: {fileID: 1997363316}
   questionWindow: {fileID: 810730747}
 --- !u!1 &2030809261

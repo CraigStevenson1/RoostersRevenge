@@ -7,9 +7,7 @@ public class InGameShop : MonoBehaviour
     Controller controller;
     [SerializeField] int dmgPowerUpPrice;
     [SerializeField] int lackeyPrice;
-    [SerializeField] int otherUpradgePrice;
     [SerializeField] int permanentDmgBoostNumber;
-    [SerializeField] int featherDmgUpgrdadeNumber;
     [SerializeField] float lacketAtkInterval;
     [SerializeField] float intervalDecrement;
     [SerializeField] TMP_Text spoilsTotal;
@@ -41,7 +39,7 @@ public class InGameShop : MonoBehaviour
         currentDmgUpgradesKey = "dmgUpgrades";
         currentHPUpgradesKey = "hpUpgrades";
         currentLackeyUpgradesKey = "lackeyUpgrades";
-        int totalSpoils = PlayerPrefs.GetInt(scoreKey) + PlayerPrefs.GetInt(levelScoreKey);
+        float totalSpoils = PlayerPrefs.GetFloat(scoreKey) + PlayerPrefs.GetFloat(levelScoreKey);
         spoilsTotal.text = "Total Spoils: " + totalSpoils;
         intervalKey = "intKey";
         Debug.Log("called");
@@ -54,7 +52,7 @@ public class InGameShop : MonoBehaviour
 
     private void OnEnable()
     {
-        int totalSpoils = PlayerPrefs.GetInt(scoreKey) + PlayerPrefs.GetInt(levelScoreKey);
+        float totalSpoils = PlayerPrefs.GetFloat(scoreKey) + PlayerPrefs.GetFloat(levelScoreKey);
         spoilsTotal.text = "Total Spoils: " + totalSpoils;
         updateDmgUI();
         updateHpUI();
@@ -154,6 +152,10 @@ public class InGameShop : MonoBehaviour
 
     private void updateHP()
     {
+        if (!PlayerPrefs.HasKey(hpKey))
+        {
+            PlayerPrefs.SetInt(hpKey, 0);
+        }
         int currentHP = PlayerPrefs.GetInt(hpKey);
         int newHP = currentHP + healthIncrease;
         PlayerPrefs.SetInt(hpKey, newHP);
@@ -162,8 +164,8 @@ public class InGameShop : MonoBehaviour
 
     private bool hasEnoughFunds(int amount)
     {
-        int currentVal = PlayerPrefs.GetInt(scoreKey);
-        int currentLevelVal = PlayerPrefs.GetInt(levelScoreKey);
+        float currentVal = PlayerPrefs.GetFloat(scoreKey);
+        float currentLevelVal = PlayerPrefs.GetFloat(levelScoreKey);
 
         if (currentVal + currentLevelVal  - amount < 0)
         {
@@ -175,16 +177,16 @@ public class InGameShop : MonoBehaviour
 
     private void charge(int amount)
     {
-        int currentVal = PlayerPrefs.GetInt(scoreKey);
-        int currentLevelVal = PlayerPrefs.GetInt(levelScoreKey);
+        float currentVal = PlayerPrefs.GetFloat(scoreKey);
+        float currentLevelVal = PlayerPrefs.GetFloat(levelScoreKey);
 
         if (currentVal - amount < 0)
         {
-            int surplus = currentVal - amount;
+            float surplus = currentVal - amount;
             currentLevelVal += surplus;
-            PlayerPrefs.SetInt(scoreKey, 0);
-            PlayerPrefs.SetInt(levelScoreKey, currentLevelVal);
-            int totalSpoils = PlayerPrefs.GetInt(scoreKey) + PlayerPrefs.GetInt(levelScoreKey);
+            PlayerPrefs.SetFloat(scoreKey, 0);
+            PlayerPrefs.SetFloat(levelScoreKey, currentLevelVal);
+            float totalSpoils = PlayerPrefs.GetFloat(scoreKey) + PlayerPrefs.GetFloat(levelScoreKey);
             spoilsTotal.text = "Total Spoils: " + totalSpoils;
             controller.updateScoreAfterPurchase();
 
@@ -192,9 +194,9 @@ public class InGameShop : MonoBehaviour
 
         else
         {
-            int newVal = currentVal - amount;
-            PlayerPrefs.SetInt(scoreKey, newVal);
-            int totalSpoils = PlayerPrefs.GetInt(scoreKey) + PlayerPrefs.GetInt(levelScoreKey);
+            float newVal = currentVal - amount;
+            PlayerPrefs.SetFloat(scoreKey, newVal);
+            float totalSpoils = PlayerPrefs.GetFloat(scoreKey) + PlayerPrefs.GetFloat(levelScoreKey);
             spoilsTotal.text = "Total Spoils: " + totalSpoils;
         }
 

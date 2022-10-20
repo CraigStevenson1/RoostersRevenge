@@ -3740,16 +3740,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b93a7cdacc21746a4a6b5a6ceb4b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmgPowerUpPrice: 0
-  lackeyPrice: 0
-  otherUpradgePrice: 0
+  dmgPowerUpPrice: 1
+  lackeyPrice: 1
   permanentDmgBoostNumber: 1
-  featherDmgUpgrdadeNumber: 0
   lacketAtkInterval: 2
   intervalDecrement: 0.25
   spoilsTotal: {fileID: 932643961}
-  healthUpgradePrice: 5
-  healthIncrease: 0
+  healthUpgradePrice: 1
+  healthIncrease: 50
   totalDmgUpgrades: 10
   totalLackeyUpgrades: 10
   totalHealthUpgrades: 10

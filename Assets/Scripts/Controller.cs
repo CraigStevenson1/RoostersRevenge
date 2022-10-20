@@ -20,6 +20,7 @@ public class Controller : MonoBehaviour
     [SerializeField] GameObject endWindow;
     [SerializeField] GameObject lackeyPrefab;
     [SerializeField] string passLevelKey;
+    [SerializeField] float levelScoreScaling;
    // private int scoreCounter;
     private GameInteractions interactions;
     private bool enabled;
@@ -58,15 +59,17 @@ public class Controller : MonoBehaviour
         scoreKey = "score";
         levelScoreKey = "lscore";
         enabled = true;
-        PlayerPrefs.SetInt(levelScoreKey, 0);
+        PlayerPrefs.SetFloat(levelScoreKey, 0);
         //passLevelKey = "leveltwo";
         PlayerPrefs.SetInt(passLevelKey, 0);
         currentLackeyUpgradesKey = "lackeyUpgrades";
 
-        if (PlayerPrefs.HasKey(currentLackeyUpgradesKey))
+        if (PlayerPrefs.GetInt(currentLackeyUpgradesKey) > 0)
         {
             createLackey();
         }
+
+        unpause();
 
 
     }
@@ -76,12 +79,14 @@ public class Controller : MonoBehaviour
         if (enabled)
         {
             //scoreCounter += 1;
-            increaseLevelScore(1);
-            score.text = "Score: " + PlayerPrefs.GetInt(levelScoreKey);
+            
             Debug.Log(interactions.Touch.TouchPosition.ReadValue<Vector2>());
             if (!hitObject(interactions.Touch.TouchPosition.ReadValue<Vector2>()))
             {
                 player.damageEnemy();
+                increaseLevelScore(1 * levelScoreScaling);
+                score.text = "Score: " + PlayerPrefs.GetFloat(levelScoreKey);
+
             }
         }
         //Debug.Log(interactions.Touch.TouchPosition.ReadValue<Vector2>());
@@ -157,29 +162,29 @@ public class Controller : MonoBehaviour
 
     public void updateScoreAfterPurchase()
     {
-        score.text = "Score: " + PlayerPrefs.GetInt(levelScoreKey);
+        score.text = "Score: " + PlayerPrefs.GetFloat(levelScoreKey);
     }
-    private void increaseScoreValue(int amount)
+    private void increaseScoreValue(float amount)
     {
         
         if (PlayerPrefs.HasKey(scoreKey))
         {
-            int prevVal = PlayerPrefs.GetInt(scoreKey);
-            int newVal = prevVal + amount;
-            PlayerPrefs.SetInt(scoreKey, newVal);
+            float prevVal = PlayerPrefs.GetFloat(scoreKey);
+            float newVal = prevVal + amount;
+            PlayerPrefs.SetFloat(scoreKey, newVal);
         }
         else
         {
-            PlayerPrefs.SetInt(scoreKey, amount);
+            PlayerPrefs.SetFloat(scoreKey, amount);
         }
         
     }
 
-    private void increaseLevelScore(int amount)
+    private void increaseLevelScore(float amount)
     {
-        int currentValue = PlayerPrefs.GetInt(levelScoreKey);
-        int newVal = currentValue + amount;
-        PlayerPrefs.SetInt(levelScoreKey, newVal);
+        float currentValue = PlayerPrefs.GetFloat(levelScoreKey);
+        float newVal = currentValue + amount;
+        PlayerPrefs.SetFloat(levelScoreKey, newVal);
     }
     public void updatePlayerHP(string hp)
     {
@@ -219,6 +224,8 @@ public class Controller : MonoBehaviour
         enabled = true;
     }
 
+    
+
     public void createLackey()
     {
         Vector3 playerPos = player.getPlayerPos();
@@ -227,14 +234,15 @@ public class Controller : MonoBehaviour
         Instantiate(lackeyPrefab, playerPos, Quaternion.identity);
     }
 
-    private void endLevel()
+    public void endLevel()
     {
         
-        increaseScoreValue(PlayerPrefs.GetInt(levelScoreKey));
-        PlayerPrefs.SetInt(levelScoreKey, 0);
+        increaseScoreValue(PlayerPrefs.GetFloat(levelScoreKey));
+        PlayerPrefs.SetFloat(levelScoreKey, 0);
         //PlayerPrefs.SetInt(passLevelKey, 0);
         endWindow.SetActive(true);
         enabled = false;
+        Time.timeScale = 0;
     }
 
     public void healPlayer(int amount)
@@ -242,6 +250,9 @@ public class Controller : MonoBehaviour
         player.healHP(amount);
     }
 
-
+    public void playerDead()
+    {
+        endLevel();
+    }
 
 }

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8c5336e19bfa44383a001a6669f5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDamage: 20
+  projectileDamage: 50
   projectileClickCount: 2
   projectileRank: 2
 --- !u!54 &4043953789707115409

@@ -19,6 +19,7 @@ public class PlayerUtils : MonoBehaviour, IGetHealthSystem
     private string permanentAtkBoostKey;
     private HealthSystem playerHpSys;
     private string hpKey;
+    
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class PlayerUtils : MonoBehaviour, IGetHealthSystem
         powerUpTimer = 0;
         shieldPowerUpTimer = 0;
         permanentAtkBoostKey = "dmg";
+        hpKey = "hp";
 
         if (PlayerPrefs.HasKey(permanentAtkBoostKey))
         {
@@ -52,17 +54,35 @@ public class PlayerUtils : MonoBehaviour, IGetHealthSystem
 
     public void takeProjectileDmg(int damage)
     {
-        
-        startHP -= damage;
+
+        //startHP -= damage;
         playerHpSys.Damage(damage);
+
+        if (playerHpSys.IsDead())
+        {
+            controller.playerDead();
+        }
         //controller.updatePlayerHP("PlayerHP: " + startHP.ToString());
     }
 
     public void healHP(int amount)
     {
-        playerHpSys.Heal(amount);
-        float currentHeath = playerHpSys.GetHealth();
-        playerHpSys.SetHealthMax(currentHeath + (float)amount, true);
+        
+        //float currentHeath = playerHpSys.GetHealth();
+        //int maxHPIncrease = PlayerPrefs.GetInt(hpKey);
+        //Debug.Log(startHP + PlayerPrefs.GetInt(hpKey));
+        if (playerHpSys.GetHealth() == playerHpSys.GetHealthMax())
+        {
+            playerHpSys.SetHealthMax(playerHpSys.GetHealthMax() + PlayerPrefs.GetInt(hpKey), true);
+        }
+
+        else
+        {
+            playerHpSys.SetHealthMax(playerHpSys.GetHealthMax() + PlayerPrefs.GetInt(hpKey), false);
+            playerHpSys.Heal(amount);
+
+        }
+       // Debug.Log(playerHpSys.GetHealthMax());
     }
 
     public void damageEnemy()
