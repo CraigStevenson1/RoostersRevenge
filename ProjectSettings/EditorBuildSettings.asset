@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Campaign.unity
     guid: 8c2fc872286bd184a90f30eff20f8af4
+  - enabled: 1
+    path: Assets/Scenes/QuestionLevel.unity
+    guid: 94efc04ebf0c1724c9f3378c2e28aff0
+  - enabled: 1
+    path: Assets/Scenes/LevelTwo.unity
+    guid: 42be0a05944a4534192bdbcd1f885aae
+  - enabled: 1
+    path: Assets/Scenes/QuestionLevelTwo.unity
+    guid: 8c789973c85676c4eae4a88a2aab12b4
+  - enabled: 1
+    path: Assets/Scenes/LevelThree.unity
+    guid: 4dcd26e71fa758c4c8836e1736dc724e
   m_configObjects: {}

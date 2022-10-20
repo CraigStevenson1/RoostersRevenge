@@ -26,7 +26,8 @@ public class QuestionManager : MonoBehaviour
     private float totalSeconds;
     private List<int> usedIndexs;
     private int chosenIndex;
-    private string usedQKey;
+    private string usedQKeyOne;
+    private string scoreKey;
     //List<Question> q;
 
     // Start is called before the first frame update
@@ -34,14 +35,15 @@ public class QuestionManager : MonoBehaviour
     {
         answer = "";
         scoreTotal = 0;
-        usedQKey = "usedq";
+        usedQKeyOne = "usedq1";
         qSet = JsonUtility.FromJson<QuestionSet>(qna.text);
         usedIndexs = new List<int>();
         chosenIndex = Random.Range(questionRangeIndexs[0], questionRangeIndexs[1]);
         populateUsedQArray();
         populateQuestionBox();
         totalSeconds = min * 60 + sec;
-        
+        scoreKey = "score";
+
 
 
     }
@@ -52,7 +54,7 @@ public class QuestionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (totalSeconds > 0f)
+        if (totalSeconds > 0f && usedIndexs.Count < questionRangeIndexs[1] + 1)
         {
             totalSeconds -= Time.deltaTime;
 
@@ -67,19 +69,21 @@ public class QuestionManager : MonoBehaviour
 
     private void populateQuestionBox()
     {
-
-        chosenIndex = Random.Range(questionRangeIndexs[0], questionRangeIndexs[1]);
-        while (usedIndexs.Contains(chosenIndex))
+        if (usedIndexs.Count < questionRangeIndexs[1] + 1)
         {
-            chosenIndex = Random.Range(questionRangeIndexs[0], questionRangeIndexs[1]);
+            chosenIndex = Random.Range(questionRangeIndexs[0], questionRangeIndexs[1] + 1);
+            while (usedIndexs.Contains(chosenIndex))
+            {
+                chosenIndex = Random.Range(questionRangeIndexs[0], questionRangeIndexs[1] + 1);
+            }
+            Question val = qSet.questions[chosenIndex];
+            question.text = val.question;
+            a.text = val.A;
+            b.text = val.B;
+            c.text = val.C;
+            d.text = val.D;
+            answer = val.Answer;
         }
-        Question val = qSet.questions[chosenIndex];
-        question.text = val.question;
-        a.text = val.A;
-        b.text = val.B;
-        c.text = val.C;
-        d.text = val.D;
-        answer = val.Answer;
     }
 
     public void ansA()
@@ -163,9 +167,9 @@ public class QuestionManager : MonoBehaviour
 
     private void populateUsedQArray()
     {
-        if (PlayerPrefs.HasKey(usedQKey))
+        if (PlayerPrefs.HasKey(usedQKeyOne))
         {
-            string strArr = PlayerPrefs.GetString(usedQKey);
+            string strArr = PlayerPrefs.GetString(usedQKeyOne);
 
 
             string[] temp = strArr.Split(",");
@@ -191,10 +195,19 @@ public class QuestionManager : MonoBehaviour
                 strArray += "," + usedIndexs[i].ToString();
             }
 
-            PlayerPrefs.SetString(usedQKey, strArray);
+            PlayerPrefs.SetString(usedQKeyOne, strArray);
         }
+        Debug.Log("???????");
+        updateScorePlayerPrefs();
         endWindow.SetActive(true);
         pause();
+    }
+
+    private void updateScorePlayerPrefs()
+    {
+        int current = PlayerPrefs.GetInt(scoreKey);
+        int newVal = current + scoreTotal;
+        PlayerPrefs.SetInt(scoreKey, newVal);
     }
 
     private void pause()

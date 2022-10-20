@@ -18,10 +18,12 @@ public class PlayerUtils : MonoBehaviour, IGetHealthSystem
     private int permanentAtkBoost;
     private string permanentAtkBoostKey;
     private HealthSystem playerHpSys;
+    private string hpKey;
 
     private void Start()
     {
-        controller.updatePlayerHP("PlayerHP: " + startHP.ToString());
+        hpKey = "hp";
+        
         shield = false;
         atkPowerIncrease = 0;
         powerUpTimer = 0;
@@ -40,12 +42,27 @@ public class PlayerUtils : MonoBehaviour, IGetHealthSystem
         playerHpSys = new HealthSystem(startHP);
     }
 
+    private void calculateActualHp()
+    {
+        int addedHP = PlayerPrefs.GetInt(hpKey);
+        int finalHP = addedHP + startHP;
+        controller.updatePlayerHP("PlayerHP: " + finalHP.ToString());
+
+    }
+
     public void takeProjectileDmg(int damage)
     {
         
         startHP -= damage;
         playerHpSys.Damage(damage);
         //controller.updatePlayerHP("PlayerHP: " + startHP.ToString());
+    }
+
+    public void healHP(int amount)
+    {
+        playerHpSys.Heal(amount);
+        float currentHeath = playerHpSys.GetHealth();
+        playerHpSys.SetHealthMax(currentHeath + (float)amount, true);
     }
 
     public void damageEnemy()

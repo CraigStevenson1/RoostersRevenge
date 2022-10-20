@@ -10,27 +10,37 @@ public class Campaign : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void levelTwo()
+    public void BonusLevelOne()
     {
+        PlayerPrefs.SetInt("leveltwo", 0);
         if (PlayerPrefs.HasKey("leveltwo"))
         {
+            SceneManager.LoadScene(3);
             Debug.Log("Level Two pushed");
         }
     }
 
-    public void bonusLevelOne()
+    public void LevelTwo()
+    {
+
+        SceneManager.LoadScene(4);
+        Debug.Log("Bonus Level One pushed");
+        
+    }
+
+    public void BonusLevelTwo()
     {
         if (PlayerPrefs.HasKey("levelthree"))
         {
-            Debug.Log("Bonus Level One pushed");
+            SceneManager.LoadScene(5);
         }
     }
 
-    public void levelThree()
+    public void LevelThree()
     {
-        if (PlayerPrefs.HasKey("levelthree"))
-        {
-            Debug.Log("Level three pushed");
-        }
+        
+        SceneManager.LoadScene(6);
+        Debug.Log("Level three pushed");
+        
     }
 }

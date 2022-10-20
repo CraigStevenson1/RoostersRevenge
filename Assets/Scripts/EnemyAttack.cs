@@ -6,6 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] List<GameObject> projectiles;
+    [SerializeField] float projectileSpeed;
     private float timeBetweenAtk;
     private bool UnoReverse;
     float UnoReverseTimer;
@@ -77,7 +78,7 @@ public class EnemyAttack : MonoBehaviour
 
         Rigidbody projRb = proj.GetComponent<Rigidbody>();
 
-        projRb.velocity = direction*0.75f;
+        projRb.velocity = direction*projectileSpeed;
        // Debug.Log(worldSpawnCords);
 
 
@@ -117,7 +118,7 @@ public class EnemyAttack : MonoBehaviour
 
         Rigidbody projRb = proj.GetComponent<Rigidbody>();
 
-        projRb.velocity = direction;
+        projRb.velocity = direction*projectileSpeed;
         // Debug.Log(worldSpawnCords);
 
     }

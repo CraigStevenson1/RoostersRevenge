@@ -19,6 +19,7 @@ public class Controller : MonoBehaviour
     [SerializeField] LayerMask projectileLayer;
     [SerializeField] GameObject endWindow;
     [SerializeField] GameObject lackeyPrefab;
+    [SerializeField] string passLevelKey;
    // private int scoreCounter;
     private GameInteractions interactions;
     private bool enabled;
@@ -26,6 +27,9 @@ public class Controller : MonoBehaviour
     private Enemy enemy;
     string scoreKey;
     private string levelScoreKey;
+    private Camera mainCam;
+    string currentLackeyUpgradesKey;
+    //private string passLevelKey;
 
     //public InputAction pos;
 
@@ -44,6 +48,7 @@ public class Controller : MonoBehaviour
     }
     void Start()
     {
+        mainCam = Camera.main;
         enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
         atk = GameObject.Find("Enemy").GetComponent<EnemyAttack>();
         //enemyScript = enemy.GetComponent<Enemy>();
@@ -54,6 +59,14 @@ public class Controller : MonoBehaviour
         levelScoreKey = "lscore";
         enabled = true;
         PlayerPrefs.SetInt(levelScoreKey, 0);
+        //passLevelKey = "leveltwo";
+        PlayerPrefs.SetInt(passLevelKey, 0);
+        currentLackeyUpgradesKey = "lackeyUpgrades";
+
+        if (PlayerPrefs.HasKey(currentLackeyUpgradesKey))
+        {
+            createLackey();
+        }
 
 
     }
@@ -65,7 +78,7 @@ public class Controller : MonoBehaviour
             //scoreCounter += 1;
             increaseLevelScore(1);
             score.text = "Score: " + PlayerPrefs.GetInt(levelScoreKey);
-            
+            Debug.Log(interactions.Touch.TouchPosition.ReadValue<Vector2>());
             if (!hitObject(interactions.Touch.TouchPosition.ReadValue<Vector2>()))
             {
                 player.damageEnemy();
@@ -91,10 +104,9 @@ public class Controller : MonoBehaviour
 
     private bool hitObject(Vector2 touchCords)
     {
-        Vector2 worldTouchCords = Camera.main.ScreenToWorldPoint(touchCords);
 
-        
-        Ray ray = Camera.main.ScreenPointToRay(touchCords);
+        Debug.Log(touchCords);
+        Ray ray = mainCam.ScreenPointToRay(touchCords);
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit))
         {
@@ -133,12 +145,9 @@ public class Controller : MonoBehaviour
     {
         if (hp == "defeated")
         {
-            
             enemyHP.text = hp;
-            increaseScoreValue(PlayerPrefs.GetInt(levelScoreKey));
-            PlayerPrefs.SetInt(levelScoreKey, 0);
-            endWindow.SetActive(true);
-            enabled = false;
+            endLevel();
+         
         }
         else
         {
@@ -216,6 +225,21 @@ public class Controller : MonoBehaviour
         playerPos.x -= 1.5f;
         playerPos.y -= 1.0f;
         Instantiate(lackeyPrefab, playerPos, Quaternion.identity);
+    }
+
+    private void endLevel()
+    {
+        
+        increaseScoreValue(PlayerPrefs.GetInt(levelScoreKey));
+        PlayerPrefs.SetInt(levelScoreKey, 0);
+        //PlayerPrefs.SetInt(passLevelKey, 0);
+        endWindow.SetActive(true);
+        enabled = false;
+    }
+
+    public void healPlayer(int amount)
+    {
+        player.healHP(amount);
     }
 
 

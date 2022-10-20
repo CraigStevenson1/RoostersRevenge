@@ -33,7 +33,7 @@ public partial class @GameInteractions : IInputActionCollection2, IDisposable
                     ""id"": ""5c3d4c9c-acef-42f1-913c-8148833e9c7f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Tap"",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -50,7 +50,7 @@ public partial class @GameInteractions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""aa40d9e1-3d8b-4fff-ad57-c2a2c0a5d432"",
-                    ""path"": ""<Touchscreen>/Press"",
+                    ""path"": ""<Touchscreen>/touch0/press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -61,7 +61,7 @@ public partial class @GameInteractions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a2e0f269-8511-48ae-87da-4dbda3cbee4b"",
-                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
