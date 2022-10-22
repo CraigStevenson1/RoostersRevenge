@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2d1367c5e7e6ed244b6092c4182b0b8f
+guid: 7278f0041b8207442bf136bf1b369bab
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,97 +105,118 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: colonel_new_0
+      name: egg_new_0
       rect:
         serializedVersion: 2
-        x: 982
-        y: 1475
-        width: 1844
-        height: 2223
+        x: 569
+        y: 311
+        width: 1362
+        height: 2170
       alignment: 9
-      pivot: {x: 0.51313716, y: 0.020516818}
+      pivot: {x: 0.51778615, y: -0.002357715}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b45d3c8d2f5abca47886ab24b4493f14
-      internalID: 612395597
+      spriteID: 4f07010b883721745af7a7794ee03773
+      internalID: -296108575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colonel_new_1
+      name: egg_new_1
       rect:
         serializedVersion: 2
-        x: 179
-        y: 1162
-        width: 834
-        height: 194
-      alignment: 9
-      pivot: {x: 1.0083144, y: 0.5000025}
+        x: 1986
+        y: 1948
+        width: 122
+        height: 321
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8d36dd673744f0489faef65f571547c
-      internalID: -589242294
+      spriteID: 187da718794a86641b1eb149544e5f3a
+      internalID: -453192254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colonel_new_2
+      name: egg_new_2
       rect:
         serializedVersion: 2
-        x: 1345
-        y: 113
-        width: 1099
-        height: 1098
-      alignment: 9
-      pivot: {x: 0.50000024, y: 0.025652915}
+        x: 2037
+        y: 297
+        width: 177
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6ee6a644ebfea241bb820c9b36aa4dc
-      internalID: -1274099256
+      spriteID: 339a1de159a06264ea02978a757c021b
+      internalID: 1467385075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: colonel_new_3
+      name: egg_new_3
       rect:
         serializedVersion: 2
-        x: 2791
-        y: 1200
-        width: 837
+        x: 2108
+        y: 756
+        width: 327
+        height: 869
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f4597280730b44a911b9eb463583f3
+      internalID: 200132890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: egg_new_4
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 16
+        width: 229
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9429257466903d34eb098f82f8507a6a
+      internalID: -1146455430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: egg_new_5
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 10
+        width: 230
         height: 196
-      alignment: 9
-      pivot: {x: -0.035434227, y: 0.43820316}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65df4e5361471ce4e98731e971f0da33
-      internalID: 1658857385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colonel_new_4
-      rect:
-        serializedVersion: 2
-        x: 169
-        y: 772
-        width: 288
-        height: 115
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,71 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8c6c76b632cc4f47b1fde7d23aa5c13
-      internalID: 365653222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colonel_new_5
-      rect:
-        serializedVersion: 2
-        x: 3322
-        y: 772
-        width: 288
-        height: 115
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7af3791e169745040bf2548e6199120d
-      internalID: -2049334804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colonel_new_6
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 230
-        width: 388
-        height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b02ce1993c3d3394ba94828579f2b763
-      internalID: -360605796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: colonel_new_7
-      rect:
-        serializedVersion: 2
-        x: 3081
-        y: 61
-        width: 390
-        height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff38860f528c72e42876d22186b386cf
-      internalID: -469705148
+      spriteID: 22e025c8203249d47838cb211e01b51f
+      internalID: -146348494
       vertices: []
       indices: 
       edges: []
@@ -283,14 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      colonel_new_6: -360605796
-      colonel_new_5: -2049334804
-      colonel_new_7: -469705148
-      colonel_new_0: 612395597
-      colonel_new_2: -1274099256
-      colonel_new_1: -589242294
-      colonel_new_4: 365653222
-      colonel_new_3: 1658857385
+      egg_new_3: 200132890
+      egg_new_0: -296108575
+      egg_new_1: -453192254
+      egg_new_2: 1467385075
+      egg_new_5: -146348494
+      egg_new_4: -1146455430
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
