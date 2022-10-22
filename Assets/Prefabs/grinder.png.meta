@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a9f749a4efb0f5441b02f7ec46893db1
+guid: b625399d85e2fdd4ebcb229e88f43a65
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,29 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lackey_0
+      name: grinder_0
       rect:
         serializedVersion: 2
-        x: 715
-        y: 1027
-        width: 1045
-        height: 1295
+        x: 486
+        y: 1815
+        width: 2096
+        height: 1897
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff32e4acbde67674087f0caa10ac02b8
-      internalID: -944960151
+      spriteID: 4732399a6aa3f4b43a857440013b6485
+      internalID: -854762699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_1
+      name: grinder_1
       rect:
         serializedVersion: 2
-        x: 10
-        y: 501
-        width: 898
-        height: 385
+        x: 54
+        y: 1204
+        width: 474
+        height: 474
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bae305f4c0d3a94aa420f0c58e9edb0
-      internalID: 1302303454
+      spriteID: 726be9b09dcb501409ba4dce1a2fc12c
+      internalID: 2111156995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_2
+      name: grinder_2
       rect:
         serializedVersion: 2
-        x: 975
-        y: 454
-        width: 525
-        height: 523
+        x: 555
+        y: 1389
+        width: 473
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: facb699cb92c1244da3846b23fa46dd4
-      internalID: -816715070
+      spriteID: 74c6aa5ce9378734eb3d608e21f597a3
+      internalID: -1530063775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_3
+      name: grinder_3
       rect:
         serializedVersion: 2
-        x: 1592
-        y: 560
-        width: 898
-        height: 385
+        x: 1129
+        y: 914
+        width: 785
+        height: 786
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeeb4ad6b072a4241bd7c12b3909580d
-      internalID: -1323006457
+      spriteID: aeb72a57f959dc74fa59125b515a7f95
+      internalID: 867306475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_4
+      name: grinder_4
       rect:
         serializedVersion: 2
-        x: 836
-        y: 187
-        width: 317
-        height: 198
+        x: 2055
+        y: 1415
+        width: 474
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f6cdcc6821f01d468d97bec5340305d
-      internalID: -98693436
+      spriteID: 49285df69bb50bb4e9b5874be90e4275
+      internalID: 563167045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_5
+      name: grinder_5
       rect:
         serializedVersion: 2
-        x: 1291
-        y: 178
-        width: 317
-        height: 199
+        x: 2637
+        y: 1220
+        width: 472
+        height: 474
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +224,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c0d0f2519931e54b91616b570d7f7e1
-      internalID: -1535482174
+      spriteID: 0f9c2325bfd3be54ea4cdd9e89b29ea3
+      internalID: -1717804043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grinder_6
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 565
+        width: 308
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94e7a8c54d2b3e4c9e74d49b6fb870a
+      internalID: 818461470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grinder_7
+      rect:
+        serializedVersion: 2
+        x: 1621
+        y: 565
+        width: 308
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b59f4f0b7ef7b47be6b5d5e96f15fc
+      internalID: 1970411091
       vertices: []
       indices: 
       edges: []
@@ -253,12 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lackey_4: -98693436
-      lackey_3: -1323006457
-      lackey_0: -944960151
-      lackey_1: 1302303454
-      lackey_5: -1535482174
-      lackey_2: -816715070
+      grinder_7: 1970411091
+      grinder_0: -854762699
+      grinder_1: 2111156995
+      grinder_2: -1530063775
+      grinder_3: 867306475
+      grinder_5: -1717804043
+      grinder_6: 818461470
+      grinder_4: 563167045
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

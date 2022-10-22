@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a9f749a4efb0f5441b02f7ec46893db1
+guid: 0197ac0342dd815469ff09516b3b82d8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,29 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lackey_0
+      name: egg_news_0
       rect:
         serializedVersion: 2
-        x: 715
-        y: 1027
-        width: 1045
-        height: 1295
+        x: 569
+        y: 311
+        width: 1362
+        height: 2170
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff32e4acbde67674087f0caa10ac02b8
-      internalID: -944960151
+      spriteID: 935f72b994dafb0479dd8c733d53410c
+      internalID: 222429180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_1
+      name: egg_news_1
       rect:
         serializedVersion: 2
-        x: 10
-        y: 501
-        width: 898
-        height: 385
+        x: 1986
+        y: 1948
+        width: 122
+        height: 321
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bae305f4c0d3a94aa420f0c58e9edb0
-      internalID: 1302303454
+      spriteID: 12af5e3069b44d04f8389abc0d32c66a
+      internalID: 1144238688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_2
+      name: egg_news_2
       rect:
         serializedVersion: 2
-        x: 975
-        y: 454
-        width: 525
-        height: 523
+        x: 8
+        y: 111
+        width: 795
+        height: 1163
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: facb699cb92c1244da3846b23fa46dd4
-      internalID: -816715070
+      spriteID: d027a9f1d5646824e9fbc15b2858618c
+      internalID: 1615004848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_3
+      name: egg_news_3
       rect:
         serializedVersion: 2
-        x: 1592
-        y: 560
-        width: 898
-        height: 385
+        x: 2037
+        y: 297
+        width: 177
+        height: 468
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeeb4ad6b072a4241bd7c12b3909580d
-      internalID: -1323006457
+      spriteID: 90c0a8c59a98dda4b973942a5304fecd
+      internalID: -1173202306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_4
+      name: egg_news_4
       rect:
         serializedVersion: 2
-        x: 836
-        y: 187
-        width: 317
-        height: 198
+        x: 2108
+        y: 756
+        width: 327
+        height: 869
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f6cdcc6821f01d468d97bec5340305d
-      internalID: -98693436
+      spriteID: d8fea9f37e1f88644a9b08a51cef32f1
+      internalID: 948156139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lackey_5
+      name: egg_news_5
       rect:
         serializedVersion: 2
-        x: 1291
-        y: 178
-        width: 317
-        height: 199
+        x: 871
+        y: 16
+        width: 229
+        height: 195
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +224,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c0d0f2519931e54b91616b570d7f7e1
-      internalID: -1535482174
+      spriteID: f5d38fba983d36a4a8e493318872d6c1
+      internalID: 50355504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: egg_news_6
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 10
+        width: 230
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0aad9e0cadc1442a3c9859c18cfcc8
+      internalID: 901463315
       vertices: []
       indices: 
       edges: []
@@ -253,12 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lackey_4: -98693436
-      lackey_3: -1323006457
-      lackey_0: -944960151
-      lackey_1: 1302303454
-      lackey_5: -1535482174
-      lackey_2: -816715070
+      egg_news_1: 1144238688
+      egg_news_0: 222429180
+      egg_news_5: 50355504
+      egg_news_4: 948156139
+      egg_news_3: -1173202306
+      egg_news_6: 901463315
+      egg_news_2: 1615004848
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
