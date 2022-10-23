@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] List<GameObject> projectiles;
+    //[SerializeField] List<GameObject> projectiles;
+    [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed;
     private float timeBetweenAtk;
     private bool UnoReverse;
@@ -54,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
         {
             case 0:
                 spawnCords.x = 0;
-                spawnCords.y = Random.Range(0.5f, 1f);
+                spawnCords.y = Random.Range(0.65f, 1f);
                // Debug.Log(spawnCords);
                 break;
 
@@ -74,7 +75,7 @@ public class EnemyAttack : MonoBehaviour
 
        
 
-        GameObject proj = Instantiate(projectiles[chooseProjectile()], worldSpawnCords, Quaternion.identity);
+        GameObject proj = Instantiate(projectile, worldSpawnCords, Quaternion.identity);
 
         Rigidbody projRb = proj.GetComponent<Rigidbody>();
 
@@ -94,7 +95,7 @@ public class EnemyAttack : MonoBehaviour
         {
             case 0:
                 spawnCords.x = 1;
-                spawnCords.y = Random.Range(0.5f, 1f);
+                spawnCords.y = Random.Range(0.65f, 1f);
                 // Debug.Log(spawnCords);
                 break;
 
@@ -114,7 +115,7 @@ public class EnemyAttack : MonoBehaviour
 
 
 
-        GameObject proj = Instantiate(projectiles[chooseProjectile()], worldSpawnCords, Quaternion.identity);
+        GameObject proj = Instantiate(projectile, worldSpawnCords, Quaternion.identity);
 
         Rigidbody projRb = proj.GetComponent<Rigidbody>();
 
@@ -123,7 +124,7 @@ public class EnemyAttack : MonoBehaviour
 
     }
 
-    private int chooseProjectile()
+ /*   private int chooseProjectile()
     {
         int val = Random.Range(0, 100);
 
@@ -142,7 +143,7 @@ public class EnemyAttack : MonoBehaviour
         {
             return 2;
         }
-    }
+    }*/
 
     public void UnoReverseActivate()
     {

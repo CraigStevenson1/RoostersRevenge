@@ -24,7 +24,10 @@ public class Controller : MonoBehaviour
     [SerializeField] GameObject defeatWindow;
     [SerializeField] float scoreDecrease;
     [SerializeField] string levelpassKey;
-   // private int scoreCounter;
+    [SerializeField] AudioSource startSound;
+    [SerializeField] AudioSource levelMusic;
+    [SerializeField] AudioSource punchSound;
+    // private int scoreCounter;
     private GameInteractions interactions;
     private bool enabled;
     private EnemyAttack atk;
@@ -52,6 +55,7 @@ public class Controller : MonoBehaviour
     }
     void Start()
     {
+        
         mainCam = Camera.main;
         enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
         atk = GameObject.Find("Enemy").GetComponent<EnemyAttack>();
@@ -73,10 +77,11 @@ public class Controller : MonoBehaviour
         }
 
         unpause();
+        startSound.Play();
 
 
     }
-
+   
     private void updateScore(InputAction.CallbackContext ctx)
     {
         if (enabled)
@@ -86,6 +91,7 @@ public class Controller : MonoBehaviour
             Debug.Log(interactions.Touch.TouchPosition.ReadValue<Vector2>());
             if (!hitObject(interactions.Touch.TouchPosition.ReadValue<Vector2>()))
             {
+                //punchSound.Play();
                 player.damageEnemy();
                 increaseLevelScore(1 * levelScoreScaling);
                 score.text = "Score: " + PlayerPrefs.GetFloat(levelScoreKey);
@@ -107,6 +113,11 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
+        if(!startSound.isPlaying && !levelMusic.isPlaying &&enabled)
+        {
+            levelMusic.Play();
+            levelMusic.loop = true;
+        }
        //Debug.Log(scoreCounter.ToString());
     }
 
@@ -239,7 +250,7 @@ public class Controller : MonoBehaviour
 
     public void endLevel(bool dead)
     {
-
+        
         if (dead)
         {
             PlayerPrefs.SetFloat(levelScoreKey, 0);
@@ -259,6 +270,9 @@ public class Controller : MonoBehaviour
             enabled = false;
             Time.timeScale = 0;
         }
+
+        levelMusic.Stop();
+        levelMusic.loop = false;
     }
 
     public void healPlayer(int amount)

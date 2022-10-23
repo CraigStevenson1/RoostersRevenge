@@ -7,7 +7,8 @@ public class Campaign : MonoBehaviour
     public void levelOne()
     {
         Debug.Log("LevelOne pushed");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(7);
+        //SceneManager.LoadScene(1);
     }
 
     public void BonusLevelOne()
@@ -23,7 +24,7 @@ public class Campaign : MonoBehaviour
     public void LevelTwo()
     {
 
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(8);
         Debug.Log("Bonus Level One pushed");
         
     }
@@ -41,7 +42,7 @@ public class Campaign : MonoBehaviour
     public void LevelThree()
     {
         
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(9);
         Debug.Log("Level three pushed");
         
     }

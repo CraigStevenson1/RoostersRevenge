@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: lackey_0
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 1027
+        width: 1045
+        height: 1295
+      alignment: 9
+      pivot: {x: 0.5, y: 0.026104195}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff32e4acbde67674087f0caa10ac02b8
+      internalID: -944960151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lackey_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 501
+        width: 898
+        height: 385
+      alignment: 9
+      pivot: {x: 0.9945673, y: 0.9614251}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bae305f4c0d3a94aa420f0c58e9edb0
+      internalID: 1302303454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lackey_2
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 454
+        width: 525
+        height: 523
+      alignment: 9
+      pivot: {x: 0.5, y: 0.021370824}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facb699cb92c1244da3846b23fa46dd4
+      internalID: -816715070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lackey_3
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 560
+        width: 898
+        height: 385
+      alignment: 9
+      pivot: {x: 0.005432809, y: 0.87752956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeeb4ad6b072a4241bd7c12b3909580d
+      internalID: -1323006457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lackey_4
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 195
+        width: 317
+        height: 198
+      alignment: 9
+      pivot: {x: 1.0094599, y: 0.9893902}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f6cdcc6821f01d468d97bec5340305d
+      internalID: -98693436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lackey_5
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 178
+        width: 317
+        height: 199
+      alignment: 9
+      pivot: {x: 0.016013546, y: 0.9869308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c0d0f2519931e54b91616b570d7f7e1
+      internalID: -1535482174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +252,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lackey_4: -98693436
+      lackey_3: -1323006457
+      lackey_0: -944960151
+      lackey_1: 1302303454
+      lackey_5: -1535482174
+      lackey_2: -816715070
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

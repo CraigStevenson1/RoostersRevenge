@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 public class DefeatWindow : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioSource loseSoundEffect;
+  /*  void Start()
     {
         
+    }*/
+    private void Awake()
+    {
+        loseSoundEffect.Play();
     }
-
-   public void playAgain()
+    public void playAgain()
     {
         string sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(sceneName);
