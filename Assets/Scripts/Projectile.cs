@@ -8,11 +8,14 @@ public class Projectile : MonoBehaviour
     [SerializeField] int projectileDamage;
     [SerializeField] int projectileClickCount;
     [SerializeField] int projectileRank;
+    private GameObject hitSFX;
+
     TempPowerUpSpawner spawner;
 
     private void Start()
     {
         spawner = GameObject.Find("TempPowerUpSpawner").GetComponent<TempPowerUpSpawner>();
+        hitSFX = GameObject.Find("hitSfx");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +27,7 @@ public class Projectile : MonoBehaviour
         {
             playerUt.takeProjectileDmg(projectileDamage);
             gameObject.SetActive(false);
+            hitSFX.GetComponent<hitSFX>().playerHitSound();
         }
         
         else if(other.tag == "shield")

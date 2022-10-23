@@ -6,9 +6,11 @@ public class TimeToLive : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] float timeAlive;
+    private GameObject sfx;
     void Start()
     {
-        
+        sfx = GameObject.Find("hitSfx");
+        sfx.GetComponent<hitSFX>().playPowerUp();
     }
 
     // Update is called once per frame

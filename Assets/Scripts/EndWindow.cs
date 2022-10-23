@@ -7,6 +7,7 @@ public class EndWindow : MonoBehaviour
 
     Controller controller;
     [SerializeField] TMP_Text scoreSection;
+    [SerializeField] AudioSource victorySound;
     private string scoreKey;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class EndWindow : MonoBehaviour
         scoreKey = "score";
         controller = GameObject.Find("LevelController").GetComponent<Controller>();
         scoreSection.text = "Total Spoils Accumulated: " + PlayerPrefs.GetFloat(scoreKey);
+        victorySound.Play();
 
     }
     private void OnEnable()

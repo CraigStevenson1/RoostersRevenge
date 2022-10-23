@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] TMP_Text spoilsOfWar;
+    [SerializeField] AudioSource buttonSound;
     private string scoreKey;
     void Start()
     {
