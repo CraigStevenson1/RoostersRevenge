@@ -12,10 +12,10 @@ public class TempPowerUpSpawner : MonoBehaviour
         controller = GameObject.Find("LevelController").GetComponent<Controller>();
     }
 
-    public void spawnPowerUp(int projectileRanking, Vector2 worldSpawnLocCords)
+    public void spawnPowerUp(Vector2 worldSpawnLocCords)
     {
         int lowerBound = 0;
-        switch (projectileRanking)
+        /*switch (projectileRanking)
         {
             case 1:
                 lowerBound = 0;
@@ -27,7 +27,7 @@ public class TempPowerUpSpawner : MonoBehaviour
             case 3:
                 lowerBound = 20;
                 break;
-        }
+        }*/
 
         int roll = Random.Range(lowerBound, 100);
 

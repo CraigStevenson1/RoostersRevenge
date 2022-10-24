@@ -12,7 +12,7 @@ public class storyController : MonoBehaviour
 
     public void skip()
     {
-        narration.Stop();
+        //narration.Stop();
         SceneManager.LoadScene(nextLevelSceneNum);
 
     }

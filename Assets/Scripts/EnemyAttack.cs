@@ -8,12 +8,13 @@ public class EnemyAttack : MonoBehaviour
     //[SerializeField] List<GameObject> projectiles;
     [SerializeField] GameObject projectile;
     [SerializeField] float projectileSpeed;
+    [SerializeField] float atkInterval;
     private float timeBetweenAtk;
     private bool UnoReverse;
     float UnoReverseTimer;
     void Start()
     {
-        timeBetweenAtk = 2f;
+        timeBetweenAtk = atkInterval;
         UnoReverse = false;
         UnoReverseTimer = 10f;
     }
@@ -28,13 +29,13 @@ public class EnemyAttack : MonoBehaviour
             if (!UnoReverse)
             {
                 spawnProjectile();
-                timeBetweenAtk = 2f;
+                timeBetweenAtk = atkInterval;
             }
 
             else
             {
                 spawnProjectileReverse();
-                timeBetweenAtk = 2f;
+                timeBetweenAtk = atkInterval;
             }
         }
 

@@ -107,6 +107,7 @@ public class PlayerUtils : MonoBehaviour, IGetHealthSystem
         if (!shield)
         {
             shield = true;
+            //Vector2 shieldSpawnCords = gameObject.transform.position;
             currentActiveShieldModel = Instantiate(shieldPrefab, gameObject.transform.position, Quaternion.identity);
             shieldPowerUpTimer = 5f;
         }

@@ -27,6 +27,7 @@ public class Controller : MonoBehaviour
     [SerializeField] AudioSource startSound;
     [SerializeField] AudioSource levelMusic;
     [SerializeField] AudioSource punchSound;
+    [SerializeField] GameObject lackeySpawnZone;
     // private int scoreCounter;
     private GameInteractions interactions;
     private bool enabled;
@@ -132,19 +133,27 @@ public class Controller : MonoBehaviour
             Debug.Log("is a hit");
             Projectile proj = hit.collider.GetComponent<Projectile>();
             PlayerUtils shop = hit.collider.GetComponent<PlayerUtils>();
+
             if (proj != null)
-           {
+            {
                 proj.reduceClickCount();
 
                 return true;
-          }
+            }
 
-            else if(shop != null)
+            else if (shop != null)
             {
                 shopWindow.SetActive(true);
                 pause();
                 return true;
             }
+
+            else if (hit.collider.tag == "shield")
+            {
+                shopWindow.SetActive(true);
+                pause();
+                return true;
+            } 
         }
        
 
@@ -242,10 +251,10 @@ public class Controller : MonoBehaviour
 
     public void createLackey()
     {
-        Vector3 playerPos = player.getPlayerPos();
-        playerPos.x -= 1.5f;
-        playerPos.y -= 1.0f;
-        Instantiate(lackeyPrefab, playerPos, Quaternion.identity);
+        Vector2 cords = lackeySpawnZone.transform.position;
+        /*playerPos.x -= 1.5f;
+        playerPos.y -= 1.0f;*/
+        Instantiate(lackeyPrefab, cords, Quaternion.identity);
     }
 
     public void endLevel(bool dead)

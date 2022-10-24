@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class QuestionManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] List<int> questionRangeIndexs;
     [SerializeField] GameObject endWindow;
     [SerializeField] GameObject questionWindow;
+    [SerializeField] AudioSource correctFX;
 
     private QuestionSet qSet;
     string answer;
@@ -163,6 +165,7 @@ public class QuestionManager : MonoBehaviour
 
     private void awardScore()
     {
+        correctFX.Play();
         scoreTotal += awardPerQuestion;
         score.text = "Score: " + scoreTotal;
         usedIndexs.Add(chosenIndex);
@@ -226,6 +229,11 @@ public class QuestionManager : MonoBehaviour
         Time.timeScale = 1;
         scoreRecorded = false;
         //questionWindow.SetActive(false);
+    }
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
 [System.Serializable]

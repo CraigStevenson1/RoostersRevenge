@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
         if(projectileClickCount <= 0)
         {
             Debug.Log(gameObject.transform.position);
-            spawner.spawnPowerUp(projectileRank, (gameObject.transform.position));
+            spawner.spawnPowerUp((gameObject.transform.position));
             gameObject.SetActive(false);
         }
     }

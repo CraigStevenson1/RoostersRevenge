@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileDamage: 50
-  projectileClickCount: 1
+  projectileClickCount: 2
   projectileRank: 0
 --- !u!54 &1982645047452748956
 Rigidbody:
